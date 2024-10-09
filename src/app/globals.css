@@ -2,26 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 350 100% 98%;
+    --foreground: 350 10% 10%;
+    --card: 350 100% 98%;
+    --card-foreground: 350 10% 10%;
+    --popover: 350 100% 98%;
+    --popover-foreground: 350 10% 10%;
+    --primary: 350 80% 70%;
+    --primary-foreground: 350 10% 10%;
+    --secondary: 200 80% 90%;
+    --secondary-foreground: 350 10% 10%;
+    --muted: 350 20% 90%;
+    --muted-foreground: 350 10% 40%;
+    --accent: 25 80% 80%;
+    --accent-foreground: 350 10% 10%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 350 10% 98%;
+    --border: 350 60% 80%;
+    --input: 350 60% 80%;
+    --ring: 350 80% 70%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 350 30% 10%;
+    --foreground: 350 10% 98%;
+    --card: 350 30% 10%;
+    --card-foreground: 350 10% 98%;
+    --popover: 350 30% 10%;
+    --popover-foreground: 350 10% 98%;
+    --primary: 350 80% 60%;
+    --primary-foreground: 350 10% 98%;
+    --secondary: 200 50% 30%;
+    --secondary-foreground: 350 10% 98%;
+    --muted: 350 20% 20%;
+    --muted-foreground: 350 10% 70%;
+    --accent: 25 70% 40%;
+    --accent-foreground: 350 10% 98%;
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 350 10% 98%;
+    --border: 350 50% 30%;
+    --input: 350 50% 30%;
+    --ring: 350 80% 60%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.coquette-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f9a8d4' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.game-border {
+  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75'%3E%3Cg fill='none' stroke='%23f9a8d4' stroke-width='2'%3E%3Cpath d='M1 1h73v73H1z'/%3E%3Cpath d='M8 8h59v59H8z'/%3E%3C/g%3E%3C/svg%3E") 25;
+  border-width: 25px;
+  border-style: solid;
+}
+
+.pixel-corners {
+  clip-path: 
+    polygon(
+      0px calc(100% - 20px),
+      20px calc(100% - 20px),
+      20px 100%,
+      calc(100% - 20px) 100%,
+      calc(100% - 20px) calc(100% - 20px),
+      100% calc(100% - 20px),
+      100% 20px,
+      calc(100% - 20px) 20px,
+      calc(100% - 20px) 0px,
+      20px 0px,
+      20px 20px,
+      0px 20px
+    );
 }
