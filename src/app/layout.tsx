@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Playfair_Display, Poppins } from 'next/font/google';
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 
 const playfair = Playfair_Display({ subsets: ['latin'] });
 const poppins = Poppins({ weight: ['400', '600'], subsets: ['latin'] });
@@ -52,6 +53,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
