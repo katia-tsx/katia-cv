@@ -24,12 +24,12 @@ const Home: FC = () => {
           </header>
 
           <Tabs defaultValue="about" className="space-y-4">
-            <TabsList className="flex flex-wrap gap-2">
-              <TabsTrigger value="about" className="flex-1 min-w-[45%] sm:min-w-0">About</TabsTrigger>
-              <TabsTrigger value="projects" className="flex-1 min-w-[45%] sm:min-w-0">Projects</TabsTrigger>
-              <TabsTrigger value="experience" className="flex-1 min-w-[45%] sm:min-w-0">Experience</TabsTrigger>
-              <TabsTrigger value="skills" className="flex-1 min-w-[45%] sm:min-w-0">Skills</TabsTrigger>
-              <TabsTrigger value="contact" className="flex-1 min-w-[45%] sm:min-w-0">Contact</TabsTrigger>
+            <TabsList className="flex flex-col sm:flex-row sm:flex-wrap gap-2">
+              <TabsTrigger value="about" className="w-full sm:w-auto">About</TabsTrigger>
+              <TabsTrigger value="projects" className="w-full sm:w-auto">Projects</TabsTrigger>
+              <TabsTrigger value="experience" className="w-full sm:w-auto">Experience</TabsTrigger>
+              <TabsTrigger value="skills" className="w-full sm:w-auto">Skills</TabsTrigger>
+              <TabsTrigger value="contact" className="w-full sm:w-auto">Contact</TabsTrigger>
             </TabsList>
 
             <TabsContent value="about">
