@@ -198,7 +198,7 @@ function ProjectsSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded-lg mb-4" />
+            <img src={project.image} alt={project.title} className="w-full h-96 object-cover rounded-lg mb-4" />
             <h3 className="text-xl font-semibold mb-2 text-pink-700">{project.title}</h3>
             <p className="text-pink-800 mb-4">{project.desc}</p>
             <p className="text-sm text-pink-600">{project.tech}</p>
