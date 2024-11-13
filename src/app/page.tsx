@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Home, Search, Library, PlusSquare, Heart, ArrowRight, Play, SkipBack, SkipForward, Repeat, Shuffle, Volume2, Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
@@ -10,6 +10,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 export default function CoquettePortfolioPage() {
   const [activeSection, setActiveSection] = useState('about')
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const navItems = [
     { id: 'about', label: 'About', icon: Home },
@@ -22,15 +30,15 @@ export default function CoquettePortfolioPage() {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen)
 
   return (
-    <div className="flex flex-col h-screen bg-pink-50 text-pink-900 font-sans overflow-hidden justify-center items-center">
+    <div className="flex flex-col h-screen bg-pink-50 text-pink-900 font-sans overflow-hidden">
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <motion.nav 
           className={`fixed md:relative z-30 w-64 bg-white bg-opacity-20 backdrop-blur-lg p-6 flex flex-col h-full transition-all duration-300 ease-in-out ${
-            isSidebarOpen ? 'left-0' : '-left-64'
+            isSidebarOpen || !isMobile ? 'left-0' : '-left-64'
           } md:left-0`}
-          initial={{ x: -250 }}
-          animate={{ x: 0 }}
+          initial={false}
+          animate={{ x: isSidebarOpen || !isMobile ? 0 : -250 }}
           transition={{ type: "spring", stiffness: 120 }}
         >
           <div className="mb-6">
@@ -41,7 +49,7 @@ export default function CoquettePortfolioPage() {
               key={item.id}
               onClick={() => {
                 setActiveSection(item.id)
-                setIsSidebarOpen(false)
+                if (isMobile) setIsSidebarOpen(false)
               }}
               className={`flex items-center space-x-4 py-2 px-4 rounded-md transition-colors duration-200 ${
                 activeSection === item.id ? 'bg-pink-200 text-pink-800' : 'text-gray-600 hover:text-pink-800 hover:bg-pink-100'
@@ -69,14 +77,14 @@ export default function CoquettePortfolioPage() {
           >
             <h1 className="text-3xl md:text-4xl font-bold mb-6 text-pink-800">¡Hola! 💖</h1>
             <div className="flex flex-wrap gap-2 mb-8">
-              {['About', 'Projects', 'Experience', 'Skills', 'Contact'].map((item) => (
+              {navItems.map((item) => (
                 <Button
-                  key={item}
+                  key={item.id}
                   variant="secondary"
                   className="bg-pink-100 hover:bg-pink-200 text-pink-800 transition-all duration-300"
-                  onClick={() => setActiveSection(item.toLowerCase())}
+                  onClick={() => setActiveSection(item.id)}
                 >
-                  {item}
+                  {item.label}
                 </Button>
               ))}
             </div>
@@ -89,6 +97,7 @@ export default function CoquettePortfolioPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
+              className="min-h-[calc(100vh-16rem)]"
             >
               {activeSection === 'about' && <AboutSection />}
               {activeSection === 'projects' && <ProjectsSection />}
@@ -109,17 +118,17 @@ export default function CoquettePortfolioPage() {
             <p className="text-xs text-pink-600">Portfolio Website</p>
           </div>
         </div>
-        <div className="hidden md:flex flex-col items-center flex-1">
-          <div className="flex items-center space-x-4 mb-2">
-            <Shuffle className="h-4 w-4 md:h-5 md:w-5 text-pink-400" />
-            <SkipBack className="h-4 w-4 md:h-5 md:w-5 text-pink-400" />
+        <div className="flex flex-col items-center flex-1">
+          <div className="flex items-center space-x-2 md:space-x-4 mb-2">
+            <Shuffle className="h-3 w-3 md:h-5 md:w-5 text-pink-400" />
+            <SkipBack className="h-3 w-3 md:h-5 md:w-5 text-pink-400" />
             <Button size="sm" className="rounded-full bg-pink-500 text-white hover:bg-pink-600 transition-all duration-300">
               <Play className="h-3 w-3 md:h-4 md:w-4" />
             </Button>
-            <SkipForward className="h-4 w-4 md:h-5 md:w-5 text-pink-400" />
-            <Repeat className="h-4 w-4 md:h-5 md:w-5 text-pink-400" />
+            <SkipForward className="h-3 w-3 md:h-5 md:w-5 text-pink-400" />
+            <Repeat className="h-3 w-3 md:h-5 md:w-5 text-pink-400" />
           </div>
-          <Slider defaultValue={[33]} max={100} step={1} className="w-[150px] md:w-[200px] lg:w-[300px]" />
+          <Slider defaultValue={[33]} max={100} step={1} className="w-[100px] md:w-[200px] lg:w-[300px]" />
         </div>
         <div className="hidden md:flex items-center space-x-2 flex-1 justify-end">
           <Volume2 className="h-4 w-4 md:h-5 md:w-5 text-pink-400" />
@@ -189,7 +198,7 @@ function ProjectsSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <img src={project.image} alt={project.title} className="w-full h-[60vh] object-cover rounded-lg mb-4" />
+            <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded-lg mb-4" />
             <h3 className="text-xl font-semibold mb-2 text-pink-700">{project.title}</h3>
             <p className="text-pink-800 mb-4">{project.desc}</p>
             <p className="text-sm text-pink-600">{project.tech}</p>
