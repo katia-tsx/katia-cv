@@ -34,7 +34,7 @@ export default function CoquettePortfolioPage() {
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <motion.nav 
-          className={`fixed md:relative z-30 w-64 bg-white bg-opacity-20 backdrop-blur-lg p-6 flex flex-col h-full transition-all duration-300 ease-in-out ${
+          className={`fixed md:relative z-30 w-64 bg-white bg-opacity-20 backdrop-blur-lg p-6 flex flex-col h-full transition-all duration-100 ease-in-out ${
             isSidebarOpen || !isMobile ? 'left-0' : '-left-64'
           } md:left-0`}
           initial={false}
@@ -51,7 +51,7 @@ export default function CoquettePortfolioPage() {
                 setActiveSection(item.id)
                 if (isMobile) setIsSidebarOpen(false)
               }}
-              className={`flex items-center space-x-4 py-2 px-4 rounded-md transition-colors duration-200 ${
+              className={`flex items-center space-x-4 py-2 px-4 rounded-md transition-colors duration-100 ${
                 activeSection === item.id ? 'bg-pink-200 text-pink-800' : 'text-gray-600 hover:text-pink-800 hover:bg-pink-100'
               }`}
               whileHover={{ scale: 1.05 }}
@@ -67,7 +67,7 @@ export default function CoquettePortfolioPage() {
         <main className="flex-1 overflow-auto bg-white p-4 md:p-8">
           <div className="md:hidden mb-4">
             <Button onClick={toggleSidebar} variant="outline" size="icon">
-              <Menu className="h-4 w-4" />
+              <Menu className="h-4 w-4 flex items-center justify-center" />
             </Button>
           </div>
           <motion.div
