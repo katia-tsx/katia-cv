@@ -44,10 +44,11 @@ export const metadata: Metadata = {
     siteName: 'Katia Pujols Portfolio',
     images: [
       {
-        url: '/banner.png',
+        url: 'https://katia-portfolio.vercel.app/banner.png',
         width: 1200,
         height: 630,
         alt: 'Katia Pujols - Frontend Developer Portfolio',
+        type: 'image/png',
       },
     ],
   },
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     title: 'Katia Pujols | Frontend Developer & Full Stack Developer',
     description: 'Frontend Developer specializing in Next.js, React, TypeScript, and SAP Business One integration.',
     creator: '@katiadev',
-    images: ['/banner.png'],
+    images: ['https://katia-portfolio.vercel.app/banner.png'],
   },
   robots: {
     index: true,
