@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://katia-portfolio.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
     default: 'Katia Pujols | Frontend Developer & Full Stack Developer',
     template: '%s | Katia Pujols'
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://katia-portfolio.vercel.app',
+    url: '/',
     title: 'Katia Pujols | Frontend Developer & Full Stack Developer',
     description: 'Frontend Developer specializing in Next.js, React, TypeScript, and SAP Business One integration. Creating exceptional user experiences with modern web technologies.',
     siteName: 'Katia Pujols Portfolio',
     images: [
       {
-        url: 'https://katia-portfolio.vercel.app/banner.png',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'Katia Pujols - Frontend Developer Portfolio',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: 'Katia Pujols | Frontend Developer & Full Stack Developer',
     description: 'Frontend Developer specializing in Next.js, React, TypeScript, and SAP Business One integration.',
     creator: '@katiadev',
-    images: ['https://katia-portfolio.vercel.app/banner.png'],
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
