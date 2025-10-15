@@ -1,36 +1,203 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio - Katia Nathaly Pujols Almanzar
 
-## Getting Started
+Un portfolio moderno y responsive recreado fielmente basado en el diseño original de Shourya Khanna, adaptado para mostrar el trabajo y experiencia de Katia Nathaly Pujols Almanzar.
 
-First, run the development server:
+## 🚀 Características
+
+- **Diseño Fiel**: Recreación exacta del diseño original con adaptaciones personalizadas
+- **Responsive**: Optimizado para todos los dispositivos (móvil, tablet, desktop)
+- **Modern Stack**: Next.js 14, TypeScript, Tailwind CSS
+- **Performance**: Optimización de imágenes y carga rápida
+- **Accesibilidad**: HTML semántico y mejores prácticas de accesibilidad
+
+## 🛠️ Tecnologías
+
+- **Framework**: Next.js 14 (App Router)
+- **Lenguaje**: TypeScript
+- **Estilos**: Tailwind CSS
+- **Componentes**: Radix UI + Custom Components
+- **Iconos**: Lucide React
+- **Animaciones**: Framer Motion
+- **Temas**: next-themes
+
+## 📦 Instalación
 
 ```bash
+# Clonar el repositorio
+git clone <repository-url>
+cd katia-cv
+
+# Instalar dependencias
+npm install
+# o
+pnpm install
+# o
+yarn install
+
+# Ejecutar en desarrollo
 npm run dev
-# or
-yarn dev
-# or
+# o
 pnpm dev
-# or
-bun dev
+# o
+yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Layout principal
+│   ├── page.tsx           # Página principal
+│   └── globals.css        # Estilos globales
+├── components/
+│   ├── portfolio/         # Componentes del portfolio
+│   │   ├── header.tsx     # Sección hero con título estilizado
+│   │   ├── about.tsx      # Sección sobre mí con tarjeta ID
+│   │   ├── experience.tsx # Experiencia profesional y académica
+│   │   ├── contact-software.tsx # Contacto e iconos de software
+│   │   └── projects.tsx   # Showcase de proyectos con tarjetas coloreadas
+│   └── ui/                # Componentes UI reutilizables
+└── lib/
+    └── utils.ts           # Funciones utilitarias
+```
 
-## Learn More
+## 🎯 Secciones del Portfolio
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Header/Hero
+- Título "Portfolio" con letras rotadas estilizadas
+- Ilustración del diseñador (tu foto)
+- Indicador de año ('25)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. About Me
+- Introducción personal
+- Tarjeta ID con efecto glassmorphism
+- Descripción profesional
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. GitHub Streak
+- Racha actual de GitHub (15 días)
+- Contribuciones totales
+- Gráfico de actividad reciente
+- Enlace directo al perfil de GitHub
 
-## Deploy on Vercel
+### 4. Tech Stack
+- Stack tecnológico completo con iconos
+- Categorías: Frontend, Backend, Database, DevOps, Tools
+- Niveles de habilidad con barras de progreso
+- Estadísticas resumidas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5. Experience
+- Experiencia profesional (2 columnas)
+- Experiencia académica y voluntariado
+- Timeline limpio y organizado
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 6. Contact & Software
+- Enlaces de contacto con iconos de marca
+- Showcase de software Adobe
+- Interacciones hover
+
+### 7. Projects
+- 5 proyectos con tarjetas coloreadas
+- Mockups de dispositivos
+- Texto de fondo "CONTENT"
+- Números de proyecto superpuestos
+
+## 📱 Diseño Responsive
+
+El portfolio está optimizado para:
+- **Móvil**: < 768px (1 columna)
+- **Tablet**: 768px - 1024px (2-3 columnas)
+- **Desktop**: > 1024px (5 columnas completas)
+
+### Características Responsive:
+- Tipografía fluida usando `clamp()`
+- Grid adaptativo basado en tamaño de pantalla
+- Imágenes responsivas con Next.js Image
+- Espaciado consistente en todos los breakpoints
+
+## 🎨 Sistema de Diseño
+
+### Paleta de Colores
+```css
+portfolio: {
+  blue: '#E3F2FD',      /* Proyectos 1 & 5 */
+  beige: '#F5F5DC',     /* Proyecto 2 */
+  green: '#E8F5E8',     /* Proyecto 3 */
+  red: '#FFEBEE',       /* Proyecto 4 */
+  lightBlue: '#E1F5FE'  /* Azul alternativo */
+}
+```
+
+### Tipografía
+- **Fuente Principal**: Inter (Google Fonts)
+- **Manuscrita**: Brush Script MT (para texto "free font")
+- **Título Estilizado**: Letras rotadas con transformaciones CSS
+
+## 🔧 Personalización
+
+### Para cambiar contenido:
+1. **Experiencia**: Editar arrays en `experience.tsx`
+2. **Proyectos**: Modificar datos en `projects.tsx`
+3. **Contacto**: Actualizar enlaces en `contact-software.tsx`
+4. **Sobre mí**: Cambiar texto en `about.tsx`
+
+### Para cambiar diseño:
+1. **Colores**: Actualizar `tailwind.config.ts`
+2. **Tipografía**: Modificar `globals.css`
+3. **Layout**: Ajustar sistemas de grid
+4. **Imágenes**: Reemplazar assets en `/public`
+
+## 📁 Assets Requeridos
+
+```
+public/
+├── illustration.png          # Ilustración hero
+├── id-card-photo.png         # Foto sección about
+├── project1-mockup1.png      # Mockups proyecto 1
+├── project1-mockup2.png
+├── project2-tablet.png       # Mockups proyecto 2
+├── project2-phone.png
+├── project3-phone1.png       # Mockups proyecto 3
+├── project3-phone2.png
+├── project4-laptop.png       # Mockup proyecto 4
+├── project5-phone1.png       # Mockups proyecto 5
+└── project5-phone2.png
+```
+
+## 🚀 Despliegue
+
+```bash
+# Build de producción
+npm run build
+
+# Servidor de producción
+npm run start
+```
+
+### Desplegar en Vercel:
+1. Conecta tu repositorio a Vercel
+2. Configura variables de entorno si es necesario
+3. Despliega automáticamente
+
+## 📚 Documentación
+
+Para documentación detallada de desarrollo, consulta [DEVELOPMENT.md](./DEVELOPMENT.md).
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+1. Fork el proyecto
+2. Crea una rama para tu feature
+3. Commit tus cambios
+4. Push a la rama
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
+
+---
+
+**Desarrollado con ❤️ por el equipo de desarrollo**

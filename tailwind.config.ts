@@ -21,16 +21,16 @@ const config: Config = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: '#ec4899',
-  				foreground: '#f472b6'
+  				DEFAULT: '#000000',
+  				foreground: '#ffffff'
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
   			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
+  				DEFAULT: '#f5f5f5',
+  				foreground: '#666666'
   			},
   			accent: {
   				DEFAULT: 'hsl(var(--accent))',
@@ -43,6 +43,14 @@ const config: Config = {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
+  			// Portfolio specific colors
+  			portfolio: {
+  				blue: '#E3F2FD',
+  				beige: '#F5F5DC',
+  				green: '#E8F5E8',
+  				red: '#FFEBEE',
+  				lightBlue: '#E1F5FE'
+  			},
   			chart: {
   				'1': 'hsl(var(--chart-1))',
   				'2': 'hsl(var(--chart-2))',
@@ -50,6 +58,9 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		fontFamily: {
+  			sans: ['Inter', 'system-ui', 'sans-serif'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

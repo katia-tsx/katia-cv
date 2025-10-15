@@ -19,6 +19,7 @@ const skills: Skill[] = [
   { name: "JavaScript", level: 80 },
   { name: "HTML", level: 90 },
   { name: "Figma", level: 75 },
+  { name: "SAP Business One", level: 65 },
   { name: "Git", level: 70 }
 ]
 
